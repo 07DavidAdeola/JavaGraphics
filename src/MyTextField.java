@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -64,9 +65,12 @@ public class MyTextField extends JFrame implements ActionListener {
 
             try {
 
+                File file = new File("user.txt");
+
+                System.out.println(file.getAbsolutePath());
+
                 BufferedReader reader = new BufferedReader(
-                        new FileReader("users.txt")
-                );
+                        new FileReader("src/User.txt"));
 
                 reader.readLine();
 
@@ -99,25 +103,8 @@ public class MyTextField extends JFrame implements ActionListener {
                 }
 
                 if (found) {
-
-                    JFrame welcomeFrame = new JFrame();
-
-                    JLabel welcomeLabel = new JLabel(
-                            "Welcome to the system"
-                    );
-
-                    welcomeFrame.add(welcomeLabel);
-
-                    welcomeFrame.setSize(300, 150);
-                    welcomeFrame.setTitle("Login Successful");
-
-                    welcomeFrame.setDefaultCloseOperation(
-                            JFrame.DISPOSE_ON_CLOSE
-                    );
-
-                    welcomeFrame.setLocationRelativeTo(null);
-                    welcomeFrame.setVisible(true);
-
+                    new StudentManagement();
+                    this.dispose();
                 } else {
 
                     JOptionPane.showMessageDialog(
@@ -131,30 +118,12 @@ public class MyTextField extends JFrame implements ActionListener {
 
                 JOptionPane.showMessageDialog(
                         this,
-                        "Error reading users.txt: " + ex.getMessage());
+                        "Error reading user.txt: " + ex.getMessage());
 
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
