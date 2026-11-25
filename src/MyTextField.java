@@ -70,7 +70,7 @@ public class MyTextField extends JFrame implements ActionListener {
                 System.out.println(file.getAbsolutePath());
 
                 BufferedReader reader = new BufferedReader(
-                        new FileReader("src/User.txt"));
+                        new FileReader("Users.txt"));
 
                 reader.readLine();
 
@@ -118,7 +118,7 @@ public class MyTextField extends JFrame implements ActionListener {
 
                 JOptionPane.showMessageDialog(
                         this,
-                        "Error reading user.txt: " + ex.getMessage());
+                        "Error reading users.txt: " + ex.getMessage());
 
             }
         }
